@@ -13,8 +13,6 @@ void cli_opts_init(struct cli_opts_app *const app, struct cli_opt *const opts,
   app->desc = desc;
 }
 
-static bool cli_opts_shift(struct cli_opts_app *const app) { return false; }
-
 static void cli_opts_error(const char *errstr, ...) {
   va_list ap;
 
@@ -24,6 +22,8 @@ static void cli_opts_error(const char *errstr, ...) {
   fprintf(stderr, "\n");
   va_end(ap);
 }
+
+static void cli_opts_usage(const struct cli_opt *const opt) {}
 
 static bool cli_opts_to_num(struct cli_opts_app *const app,
                             const struct cli_opt *opt) {
